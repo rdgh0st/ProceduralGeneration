@@ -1,16 +1,13 @@
 import java.util.Random;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
-public class HighDenResidential extends Zone {
+public class Commercial extends Zone {
 
-	public HighDenResidential() {
-		super(Color.darkGray, 10, 10);
-	}
-	
-	@Override
-	public String toString() {
-		return "HighDenResidential";
+	public Commercial() {
+		super(Color.green, 10, 10);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -22,25 +19,27 @@ public class HighDenResidential extends Zone {
 	@Override
 	public Zone GenerateNeighbor() {
 		/*
-		 * 40%  -  HighDenResidential 
+		 * 20%  -  HighDenResidential 
 		 * 20%  -  AverageDenResidential 
-		 * 0% -  LowDenResidential 
-		 * 20%  -  Commercial 
-		 * 10%  -  Industrial 
-		 * 10%  -  RecreationSpace
-		 * */
+		 * 5% -  LowDenResidential 
+		 * 30%  -  Commercial 
+		 * 20%  -  Industrial 
+		 * 5% -  RecreationSpace
+		 */
 		Random random = new Random();
-		int rand = random.nextInt(10);
+		int rand = random.nextInt(20);
 		if (rand == 0) {
-			return zoneMaker.makeZone("Industrial");
-		} else if (rand == 1) {
 			return zoneMaker.makeZone("Recreation");
-		} else if (rand <= 3) {
-			return zoneMaker.makeZone("Commercial");
+		} else if (rand == 1) {
+			return zoneMaker.makeZone("LowDenResidential");
 		} else if (rand <= 5) {
+			return zoneMaker.makeZone("Industrial");
+		} else if (rand <= 9) {
 			return zoneMaker.makeZone("AverageDenResidential");
-		} else {
+		} else if (rand <= 13) {
 			return zoneMaker.makeZone("HighDenResidential");
+		} else {
+			return zoneMaker.makeZone("Commercial");
 		}
 	}
 

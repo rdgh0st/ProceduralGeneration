@@ -3,23 +3,18 @@ import org.newdawn.slick.Graphics;
 
 public abstract class Zone {
 
-	private int width;
-	private int height;
-	private Color color;
-	private ZoneGenerator zoneMaker = new ZoneGenerator();
+	protected Color color;
+	protected ZoneGenerator zoneMaker = new ZoneGenerator();
+	protected int width;
+	protected int height;
 	
-	public Zone(int width, int height, Color color) {
-		this.width = width;
-		this.height = height;
+	public Zone(Color color, int height, int width) {
 		this.color = color;
+		this.height = height;
+		this.width = width;
 	}
 	
-	public void drawSelf() {
-		
-	}
+	public abstract void drawSelf(Graphics painter, int currentX, int currentY);
 	
-	public Zone GenerateNeighbor() {
-		return zoneMaker.makeZone(this.toString());
-	}
-
+	public abstract Zone GenerateNeighbor();
 }

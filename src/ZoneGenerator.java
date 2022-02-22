@@ -11,6 +11,22 @@ public class ZoneGenerator {
 		switch (type) {
 		case "HighDenResidential":
 			zone = new HighDenResidential();
+			break;
+		case "AverageDenResidential":
+			zone = new AverageDenResidential();
+			break;
+		case "LowDenResidential":
+			zone = new LowDenResidential();
+			break;
+		case "Commercial":
+			zone = new Commercial();
+			break;
+		case "Industrial":
+			zone = new Industrial();
+			break;
+		case "Recreation":
+			zone = new RecreationSpace();
+			break;
 		}
 		
 		return zone;
