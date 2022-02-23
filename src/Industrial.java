@@ -5,17 +5,25 @@ import org.newdawn.slick.Graphics;
 
 public class Industrial extends Zone {
 
+	/**
+	 * Calls the constructor of the Zone class using its unique color, as well as width/height
+	 */
 	public Industrial() {
 		super(Color.red, 10, 10);
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Sets the corresponding color and renders the Zone using the given dimensions and its own width/height
+	 */
 	@Override
 	public void drawSelf(Graphics painter, int currentX, int currentY) {
 		painter.setColor(color);
 		painter.fillRect(currentX, currentY, width, height);
 	}
 
+	/**
+	 * Uses random object to create and return a new Zone from the given probabilities
+	 */
 	@Override
 	public Zone GenerateNeighbor() {
 		/*
